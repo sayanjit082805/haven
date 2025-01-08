@@ -1,0 +1,46 @@
+---
+import Layout from "../../layouts/layout.astro";
+import Blogs from "../../components/Blogs.astro";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("blog");
+
+allPosts.sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
+const yearSorted = allPosts.reduce((acc, post) => {
+  const date = new Date(post.data.date).toLocaleDateString("en-US", {
+    year: "numeric",
+  });
+  if (!acc[date]) {
+    acc[date] = [];
+  }
+  acc[date].push(post);
+  return acc;
+}, {});
+---
+
+<Layout title="Blog">
+  <div class="w-full flex justify-center md:pt-8 flex-col items-center gap-2">
+    <div class="md:w-2/3 pt-4 px-4 w-full lg:w-1/2 flex-col">
+      <h1 class="text-fg text-2xl md:text-3xl font-bold antialiased">
+        The Twilight Chronicles
+      </h1>
+      {
+        Object.keys(yearSorted)
+          .reverse()
+          .map((date) => (
+            <div>
+              <h2 class="text-fg text-xl md:text-2xl font-semibold antialiased mt-8">
+                {date}
+              </h2>
+              {yearSorted[date].map((post: any) => (
+                <Blogs key={post.id} post={post} url={`/blog/${post.id}/`} />
+              ))}
+            </div>
+          ))
+      }
+    </div>
+  </div>
+</Layout>

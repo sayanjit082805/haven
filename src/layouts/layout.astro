@@ -1,0 +1,60 @@
+---
+const { title } = Astro.props;
+import Navbar from "../components/Navbar.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body class="bg-bg">
+    <Navbar />
+    <h1>{title}</h1>
+    <article>
+      <slot />
+      <!-- your content is injected here -->
+    </article>
+  </body>
+  <style is:global>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: Geist;
+    }
+    *::-webkit-scrollbar {
+      width: 15px;
+      background: #090909;
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background-color: #222;
+      border-radius: 3px;
+    }
+
+    @font-face {
+      font-family: "Geist";
+      src: url("/fonts/Geist-Regular.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Geist Light";
+      src: url("/fonts/Geist-Light.ttf") format("truetype");
+      font-weight: lighter;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Iosevka";
+      src: url("/fonts/Iosevka.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+</html>

@@ -1,0 +1,36 @@
+---
+import { Tag } from "lucide-astro";
+const { post, url } = Astro.props;
+---
+
+<div class="container mx-auto py-8">
+  <div class="grid grid-cols-1 gap-4">
+    <div
+      class="bg-bg shadow-md overflow-hidden border border-black3 transition-colors"
+    >
+      <div class="p-4">
+        <a
+          href={url}
+          class="text-xl md:text-2xl font-semibold text-blue2 hover:underline cursor-pointer font-mono"
+        >
+          {post.data.title}
+        </a>
+        <hr class="w-full border-bg2 mt-5" />
+      </div>
+      <div class="p-4 flex-grow">
+        <p class="text-md md:text-lg text-fg2 mb-4 font-mono">{post.data.description}</p>
+        <div class="font-mono text-neutral-500 text-md flex items-center gap-2 mb-4">
+          {post.data.date}
+        </div>
+        <div class="font-mono text-neutral-500 flex items-center gap-2">
+          <Tag size="18" class="inline-block"/>
+          {
+            post.data.tags.map((tag: string) => (
+              <span class="text-neutral-400 font-mono text-sm antialiased">{tag} | </span>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

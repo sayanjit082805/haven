@@ -1,0 +1,58 @@
+---
+interface Project {
+  name: string;
+  description: string;
+  language: string;
+  link: string;
+}
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+import { Github } from "lucide-astro";
+
+const languageColors: { [key: string]: string } = {
+  Javascript : "bg-yellow-500",
+  Arduino : "bg-teal-500",
+  CSS : "bg-violet-500",
+};
+---
+
+<div class="container mx-auto py-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    {
+      projects.map((project) => (
+        <div class="bg-bg shadow-md overflow-hidden border border-black2 hover:border-fg3 transition-colors">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold text-blue2 hover:underline cursor-pointer font-mono">
+              {project.name}
+            </h3>
+            <hr class="w-full border-bg2 mt-5" />
+          </div>
+          <div class="p-4 flex-grow">
+            <p class="text-md text-fg3 mb-4 font-mono">{project.description}</p>
+            <div class="font-mono text-neutral-500 text-sm flex items-center gap-2">
+              <span
+                class={`w-3 h-3 rounded-full ${languageColors[project.language] || "bg-gray-500"}`}
+                aria-hidden="true"
+              />
+              {project.language}
+              
+            </div>
+          </div>
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-mono text-neutral-400 hover:text-neutral-300 text-sm flex items-center gap-2 transition-colors p-4"
+          >
+            <Github size={16} />
+            GitHub
+          </a>
+        </div>
+      ))
+    }
+  </div>
+</div>
