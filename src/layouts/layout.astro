@@ -1,16 +1,15 @@
 ---
 const { title } = Astro.props;
 import Navbar from "../components/Navbar.astro";
-import { ClientRouter } from "astro:transitions";
 ---
 
-<html lang="en" transition:animate="none" transition:name="root">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <ClientRouter />
+ 
   </head>
-  <body class="bg-bg" transition:animate="slide">
+  <body class="bg-bg">
     <Navbar />
     <h1>{title}</h1>
     <article>
