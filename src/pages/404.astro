@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/layout.astro";
+---
+
+<Layout>
+  <div class="w-full flex justify-center md:pt-8 items-center gap-2">
+    <div class="md:w-2/3 pt-4 px-4 w-full lg:w-1/2 flex justify-center items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <div
+        class="text-center space-y-8 p-8 bg-bg rounded-lg shadow-2xl max-w-md w-full border border-black3"
+      >
+        <h1 class="text-4xl md:text-7xl font-bold text-fg">404</h1>
+        <p class="text-xl md:text-3xl font-semibold text-fg2">
+          All quiet on the server front
+        </p>
+        <p class="text-gray-400 text-lg">
+          The page you're looking for seems to have gone AWOL.
+        </p>
+        <a
+          href="/"
+          class="inline-block px-6 py-3 text-sm md:text-lg font-medium leading-6 text-center text-bg transition bg-fg rounded-lg shadow"
+        >
+          Return to Base
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
