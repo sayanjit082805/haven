@@ -9,13 +9,17 @@ import mdx from "@astrojs/mdx";
 
 import { remarkReadingTime } from "./src/helpers/readingtime";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://haven-sayanjit.vercel.app/',
   integrations: [
     tailwind(),
     react(),
     mdx({
       remarkPlugins: [remarkReadingTime],
     }),
+    sitemap(),
   ],
 });
