@@ -1,4 +1,4 @@
-My personal website built using [astro.js](https://astro.build/) (heavily WIP)
+My personal website built using [astro.js](https://astro.build/).
 
 ## Credits 
 - [This](https://github.com/namishh/me) repo for the basic layout and as a reference (a superb one, at that).  

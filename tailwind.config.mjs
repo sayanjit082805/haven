@@ -18,6 +18,7 @@ export default {
         black1: "#090909",
         black2: "#36454f",
         black3: "#242124",
+        black4: "#1d1d1d",
       },
       listStyleType: {
         square: "square",
