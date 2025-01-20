@@ -3,10 +3,10 @@ const path = Astro.url.pathname;
 ---
 
 <nav
-  class="w-full z-50 mb-0 md:mb-4 sticky top-0 md:top-8 flex justify-center text-fg"
+  class="w-full z-50 mb-0 md:mb-4 sticky top-0 md:top-8 flex justify-center text-fg navbar"
 >
   <div
-    class="bg-bg p-4 mx-0 md:mx-4 lg:mx-12 md:p-3 lg:px-4 rounded-none md:rounded-xl md:w-2/3 w-full lg:w-1/2 bg-bg/60 backdrop-blur-xl md:flex md:items-center md:justify-between"
+    class="bg-black5 shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset] p-4 mx-0 md:mx-4 lg:mx-12 md:p-3 lg:px-4 rounded-none md:rounded-xl md:w-2/3 w-full lg:w-1/2 bg-black5/60 backdrop-blur-xl md:flex md:items-center md:justify-between"
   >
     <div class="flex items-center justify-between">
       <a class="flex cursor-pointer items-center" href="/">
@@ -29,7 +29,7 @@ const path = Astro.url.pathname;
           class:list={[
             `text-[17px] md:text-[20px] px-0 md:px-2 py-1 font-bold antialiased font-mono transition-colors duration-200 hover:bg-black4 hover:text-neutral-300 hover:rounded-md`,
             path.includes("/blog")
-              ? "bg-black4 text-neutral-300 rounded-md"
+              ? "md:bg-black4 md:text-neutral-300 rounded-md"
               : "",
           ]}
           href="/blog">Blog</a
@@ -40,7 +40,7 @@ const path = Astro.url.pathname;
           class:list={[
             `text-[17px] md:text-[20px] px-0 md:px-2 py-1 font-bold antialiased font-mono transition-colors duration-200 hover:bg-black4 hover:text-neutral-300 hover:rounded-md`,
             path.includes("/projects")
-              ? "bg-black4 text-neutral-300 rounded-md"
+              ? "md:bg-black4 md:text-neutral-300 rounded-md"
               : "",
           ]}
           href="/projects">Projects</a
@@ -52,6 +52,7 @@ const path = Astro.url.pathname;
 <script>
   const navlist = document.querySelector(".navlist");
   const toggler = document.querySelector(".toggler");
+
   if (toggler && navlist) {
     toggler.addEventListener("click", () => {
       navlist.classList.toggle("hidden");
