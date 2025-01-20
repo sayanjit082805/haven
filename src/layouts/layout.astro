@@ -15,10 +15,9 @@ import Navbar from "../components/Navbar.astro";
   <body class="bg-bg">
     <Navbar />
     <h1>{title}</h1>
-    <article>
+    <main>
       <slot />
-      <!-- your content is injected here -->
-    </article>
+    </main>
   </body>
   <style is:global>
     * {
