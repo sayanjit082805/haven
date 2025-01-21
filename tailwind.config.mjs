@@ -24,6 +24,9 @@ export default {
       listStyleType: {
         square: "square",
       },
+      scale: {
+        '115': '1.15',
+      }
     },
   },
   plugins: [require("@tailwindcss/typography")],
